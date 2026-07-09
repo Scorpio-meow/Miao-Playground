@@ -28,7 +28,7 @@ python "Stardust Labyrinth.py"
 
 ## 遊戲規則與控制
 
-### 物件符號說明
+### 地圖元件說明
 
 | 符號 | 名稱 | 角色與功能說明 |
 | :---: | :--- | :--- |
@@ -47,6 +47,32 @@ python "Stardust Labyrinth.py"
 - `s`：向下移動一步。
 - `d`：向右移動一步。
 - `q`：結束遊戲並退出。
+
+---
+
+## 幽靈追擊演算法
+
+幽靈每回合會嘗試尋找與玩家之間曼哈頓距離（Manhattan Distance）最小的相鄰通道，並向該方向移動一步。計算方式如下：
+
+$$\text{Distance} = |r_{\text{ghost}} - r_{\text{player}}| + |c_{\text{ghost}} - c_{\text{player}}|$$
+
+其中 $(r, c)$ 分別代表角色在二維地圖中的列（Row）與行（Column）索引。
+
+在每一回合更新時，系統會計算幽靈周圍四個方向的可行通道，並依據距離大小進行排序，優先選擇能夠縮短距離的格子：
+
+```python
+# 核心追擊演算法邏輯
+candidates = []
+for dr, dc in DIRS.values():
+    nr, nc = gr + dr, gc + dc
+    if self.board[nr][nc] != '#':
+        dist = abs(pr - nr) + abs(pc - nc)
+        candidates.append((dist, nr, nc))
+# 排序：距離優先，其次是列號，再次是行號
+candidates.sort(key=lambda x: (x[0], x[1], x[2]))
+_, nr, nc = candidates[0]
+self.ghost = (nr, nc)
+```
 
 ---
 
@@ -77,34 +103,25 @@ RAW_MAP = [
 > [!WARNING]
 > 設計自訂地圖時，請確保：
 > 1. 地圖的邊界應被牆壁 `#` 包圍，以防止玩家或幽靈移出界外。
-> 2. 地圖中**只能有一個**玩家起點 `@` 與**一個**幽靈起點 `G`。
+> 2. 地圖中必須且只能有一個玩家起點 `@` 與一個幽靈起點 `G`。
 > 3. 地圖中應至少包含一個星塵 `*`。
 
 ---
 
-## 程式碼架構與核心演算法
+## 程式碼架構
 
-本專案結構極為簡潔，所有核心邏輯皆封裝於單一檔案 [Stardust Labyrinth.py](./Stardust%20Labyrinth.py) 中：
+本專案所有核心邏輯皆封裝於單一檔案 [Stardust Labyrinth.py](./Stardust%20Labyrinth.py) 中：
 
-### 核心類別與函式
-
-- **Game**：核心遊戲狀態管理類別。
-  - `from_map(raw)`：分析字元矩陣並初始化遊戲狀態（包括玩家與幽靈座標、星塵位置集合等）。
-  - `draw()`：在終端機中清屏並重新繪製目前的迷宮地圖與狀態欄。
-  - `step_player(move)`：根據輸入更新玩家位置，進行牆壁碰撞偵測，並處理星塵收集邏輯。
-  - `step_ghost()`：更新幽靈位置。
-  - `player_caught()`：判定幽靈是否與玩家重合，從而結束遊戲。
-- **main()**：程式入口點，負責遊戲主迴圈、輸入處理以及勝負判斷。
-
-### 幽靈追擊演算法
-
-幽靈每回合會嘗試尋找與玩家之間曼哈頓距離（Manhattan Distance）最小的相鄰通道，並向該方向移動一步。計算方式如下：
-$$\text{Distance} = |x_{\text{ghost}} - x_{\text{player}}| + |y_{\text{ghost}} - y_{\text{player}}|$$
-
-若有兩個方向的距離相同，則優先朝能夠減少水平距離的方向移動。
+- [Game 類別](./Stardust%20Labyrinth.py#L37-L42)：核心遊戲狀態管理類別。
+  - `from_map`：分析字元矩陣並初始化遊戲狀態（包括玩家與幽靈座標、星塵位置集合等）。
+  - `draw`：在終端機中清屏並重新繪製目前的迷宮地圖與狀態欄。
+  - `step_player`：根據輸入更新玩家位置，進行牆壁碰撞偵測，並處理星塵收集邏輯。
+  - `step_ghost`：執行幽靈尋路追擊。
+  - `player_caught`：判定幽靈是否與玩家重合。
+- [main 函數](./Stardust%20Labyrinth.py#L111-L150)：程式入口點，負責遊戲主迴圈、輸入處理以及勝負判斷。
 
 ---
 
 ## 授權條款
 
-本專案採用 [MIT License](./LICENSE) 授權條款。
+本專案採用 [MIT License](./LICENSE) 授權條款釋出。

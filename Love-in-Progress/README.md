@@ -47,9 +47,31 @@ python Love-in-Progress.py
 
 ---
 
+## 核心演算法
+
+本程式的心形座標生成採用經典的二維參數心形曲線公式：
+
+$$x = 16 \sin^3(\theta)$$
+$$y = 13 \cos(\theta) - 5 \cos(2\theta) - 2 \cos(3\theta) - \cos(4\theta)$$
+
+在程式碼中，`theta`（即 $\theta$）的取值範圍為 $0$ 到 $2\pi$，共分為 $n$ 個步長。計算出的座標會經過比例放大並平移映射至螢幕中央：
+
+```python
+# 核心心形軌跡座標計算代碼
+for i in range(n):
+    th = i / n * 2 * math.pi
+    x = 16 * math.sin(th)**3
+    y = 13 * math.cos(th) - 5 * math.cos(2*th) - 2 * math.cos(3*th) - math.cos(4*th)
+    # 映射至螢幕座標
+    sx = int(sw / 2 + x * 20 - 50)
+    sy = int(sh / 2 - y * 20 - 80)
+```
+
+---
+
 ## 自訂配置
 
-您可以直接編輯 [Love-in-Progress.py](./Love-in-Progress.py) 中的變數來進行個人化配置：
+您可以直接編輯 [Love-in-Progress.py](./Love-in-Progress.py) 中的全域變數或函式參數來進行個人化配置：
 
 | 變數或函數 | 說明 | 預設值 |
 | :--- | :--- | :--- |
@@ -65,9 +87,9 @@ python Love-in-Progress.py
 
 本專案主要由單一檔案 [Love-in-Progress.py](./Love-in-Progress.py) 組成。核心函式如下：
 
-- **`g(n, w, h)`**：心形曲線座標生成函數。使用經典的愛心曲線公式計算出 `n` 個點的座標，並將其映射至螢幕中央區域。
-- **`wx(x, y, tip=None, is_h=True)`**：建立置頂的 `tk.Toplevel` 提示視窗，並為其綁定空白鍵退出事件。
-- **`w()`**：主控制流程。負責初始化視窗環境、動態生成心形軌跡彈窗、延時銷毀、生成鋪滿螢幕的隨機彈窗，以及最後的依序淡出銷毀動畫。
+- [g](./Love-in-Progress.py#L5-L12)：心形曲線座標生成函數。使用數學公式計算出軌跡點。
+- [wx](./Love-in-Progress.py#L13-L18)：建立置頂的 `tk.Toplevel` 視窗，綁定空白鍵以實現隨時安全退出。
+- [w](./Love-in-Progress.py#L19-L33)：主控制流程。負責初始化、繪製心形軌跡、依序銷毀、鋪滿螢幕隨機祝福彈窗以及最後的快速淡出動畫。
 
 ---
 
