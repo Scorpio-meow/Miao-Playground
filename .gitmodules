@@ -1,0 +1,15 @@
+[submodule "Guess-the-number"]
+	path = Guess-the-number
+	url = https://github.com/Scorpio-meow/Guess-the-number.git
+[submodule "Liquid-Cipher"]
+	path = Liquid-Cipher
+	url = https://github.com/Scorpio-meow/Liquid-Cipher.git
+[submodule "Love-in-Progress"]
+	path = Love-in-Progress
+	url = https://github.com/Scorpio-meow/Love-in-Progress.git
+[submodule "Quantum-Duel"]
+	path = Quantum-Duel
+	url = https://github.com/Scorpio-meow/Quantum-Duel.git
+[submodule "Stardust-Labyrinth"]
+	path = Stardust-Labyrinth
+	url = https://github.com/Scorpio-meow/Stardust-Labyrinth.git
