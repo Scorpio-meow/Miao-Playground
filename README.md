@@ -10,7 +10,7 @@
 
 | 專案名稱 | 執行環境 | 主要技術 | 簡介 | 詳細文件 |
 | :--- | :--- | :--- | :--- | :--- |
-| **液體解鎖 (Liquid Cipher)** | 網頁瀏覽器 | HTML5 Canvas / Web Audio API / Tailwind CSS | 模擬減法三原色（RYB）色素混色的試管液體分類解密遊戲，具備即時音效合成與無限制復原功能。 | [檢視說明](./Liquid-Cipher/README.md) |
+| **液體解鎖 (Liquid Cipher)** | 網頁瀏覽器 | HTML5 Canvas / Web Audio API / Web Worker / PWA | 無限關卡的試劑分離解謎遊戲，每關由 Web Worker 以 BFS 驗證可解並計算最少步數，支援 PWA 離線遊玩。 | [檢視說明](./Liquid-Cipher/README.md) |
 | **星塵迷宮 (Stardust Labyrinth)** | 終端機 | Python 3 | 經典純文字迷宮冒險遊戲，幽靈會透過曼哈頓距離尋路追擊玩家，支援自訂地圖設計。 | [檢視說明](./Stardust-Labyrinth/README.md) |
 | **量子猜拳 (Quantum Duel)** | 終端機 | Python 3 | 結合斬擊、格擋與蓄能機制的策略心理戰對戰遊戲，AI 會根據當前局勢動態調整決策權重。 | [檢視說明](./Quantum-Duel/README.md) |
 | **愛情進行時 (Love in Progress)** | 桌面視窗 | Python 3 / Tkinter | 在螢幕上依據心形數學曲線軌跡動態生成多個提示彈窗的趣味程式，具備一鍵退出安全機制。 | [檢視說明](./Love-in-Progress/README.md) |

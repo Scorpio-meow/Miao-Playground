@@ -20,7 +20,7 @@
 
 ### 方式二：使用本地開發伺服器（推薦）
 
-若您希望透過本地網頁伺服器開啟，可以使用 Bun 來啟動靜態伺服器以獲得更好的瀏覽器安全上下文與載入體驗：
+若您希望透過本地網頁伺服器（Local Server）開啟，可以使用 Bun 來啟動靜態伺服器以獲得更好的瀏覽器安全上下文與載入體驗：
 
 1. 確保您的系統已安裝 Bun 執行環境。
 2. 在專案根目錄下執行以下指令安裝並開啟靜態伺服器：
@@ -54,25 +54,23 @@
 
 ### 自訂數字範圍
 
-若您希望自訂遊戲的規則（例如修改數字範圍），可直接編輯 [index.html](./index.html) 的內容。
+若您希望自訂遊戲的規則（例如修改數字範圍），可直接編輯 [index.html](./index.html) 的內容：
 
 > [!NOTE]
-> 修改範圍時，請務必同步更新 HTML 提示文字與 input 的限制屬性，以確保 UI 提示與實際邏輯相符。
+> 修改範圍時，請務必同步更新 HTML 提示文字與 `<input>` 的限制屬性，以確保 UI 提示與實際邏輯相符。
 
 | 配置項目 | 程式碼相關位置 | 預設值 | 修改說明 |
 | :--- | :--- | :--- | :--- |
 | **數字下限** | `min="1"`, `guess < 1`, `+ 1` | 1 | 調整隨機數生成偏移量及防呆判斷值。 |
-| **數字上限** | `max="100"`, `guess > 100`, `* 100` | 100 | 調整 Math.random() 相乘基數及輸入最大值限制。 |
+| **數字上限** | `max="100"`, `guess > 100`, `* 100` | 100 | 調整 `Math.random()` 相乘基數及輸入最大值限制。 |
 
 #### 修改範例（將範圍調整為 1 至 500）：
-在 [index.html](./index.html) 中進行以下修改：
-
+在 [index.html](file:///d:/Code/Guess-the-number/index.html) 中進行以下修改：
 ```html
 <!-- 修改輸入框屬性與提示標籤 -->
 <label for="guessInput">Guess a number between 1 and 500:</label>
 <input type="number" id="guessInput" min="1" max="500" placeholder="1-500">
 ```
-
 ```javascript
 // 修改 JavaScript 隨機數生成與防呆邊界
 let secretNumber = Math.floor(Math.random() * 500) + 1;
