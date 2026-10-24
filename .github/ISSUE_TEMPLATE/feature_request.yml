@@ -1,0 +1,43 @@
+name: 功能建議
+description: 提出新功能或改進的想法
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感謝你提出建議！較大的改動建議先在這裡討論，確認方向後再開始實作。
+
+        想推薦或新增一款遊戲到貓咪遊樂場，歡迎在這裡提出！**遊戲本身**的問題請到對應的子專案回報：[液體解鎖 (Liquid Cipher)](https://github.com/Scorpio-meow/Liquid-Cipher/issues/new/choose)、[星塵迷宮 (Stardust Labyrinth)](https://github.com/Scorpio-meow/Stardust-Labyrinth/issues/new/choose)、[量子猜拳 (Quantum Duel)](https://github.com/Scorpio-meow/Quantum-Duel/issues/new/choose)、[愛情進行時 (Love in Progress)](https://github.com/Scorpio-meow/Love-in-Progress/issues/new/choose)、[猜數字遊戲 (Guess the Number)](https://github.com/Scorpio-meow/Guess-the-number/issues/new/choose)。這裡只處理總覽文件、子模組設定與共用的社群文件。
+  - type: textarea
+    id: problem
+    attributes:
+      label: 想解決的問題
+      description: 目前遇到什麼不便或限制？在什麼情境下會需要這個功能？
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: 建議的做法
+      description: 你希望這個功能如何運作？
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 考慮過的替代方案
+      description: 有沒有想過其他做法？為什麼沒有選擇它們？
+  - type: textarea
+    id: additional
+    attributes:
+      label: 其他資訊
+      description: 示意圖、參考作品或任何補充說明。
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: 參與意願
+      options:
+        - label: 我願意協助實作這個功能。
+        - label: 我同意遵守本專案的[行為準則](https://github.com/Scorpio-meow/Miao-Playground/blob/main/CODE_OF_CONDUCT.md)。
+          required: true

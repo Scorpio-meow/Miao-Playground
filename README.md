@@ -10,11 +10,11 @@
 
 | 專案名稱 | 執行環境 | 主要技術 | 簡介 | 詳細文件 |
 | :--- | :--- | :--- | :--- | :--- |
-| **液體解鎖 (Liquid Cipher)** | 網頁瀏覽器 | HTML5 Canvas / Web Audio API / Web Worker / PWA | 無限關卡的試劑分離解謎遊戲，每關由 Web Worker 以 BFS 驗證可解並計算最少步數，支援 PWA 離線遊玩。 | [檢視說明](./Liquid-Cipher/README.md) |
-| **星塵迷宮 (Stardust Labyrinth)** | 終端機 | Python 3 | 經典純文字迷宮冒險遊戲，幽靈會透過曼哈頓距離尋路追擊玩家，支援自訂地圖設計。 | [檢視說明](./Stardust-Labyrinth/README.md) |
-| **量子猜拳 (Quantum Duel)** | 終端機 | Python 3 | 結合斬擊、格擋與蓄能機制的策略心理戰對戰遊戲，AI 會根據當前局勢動態調整決策權重。 | [檢視說明](./Quantum-Duel/README.md) |
-| **愛情進行時 (Love in Progress)** | 桌面視窗 | Python 3 / Tkinter | 在螢幕上依據心形數學曲線軌跡動態生成多個提示彈窗的趣味程式，具備一鍵退出安全機制。 | [檢視說明](./Love-in-Progress/README.md) |
-| **猜數字遊戲 (Guess the number)** | 網頁瀏覽器 | HTML5 / CSS3 / JavaScript | 經典的單機猜數字遊戲，提供即時的高低提示與完整的輸入數值防呆驗證。 | [檢視說明](./Guess-the-number/README.md) |
+| **液體解鎖 (Liquid Cipher)** | 網頁瀏覽器 | HTML5 Canvas / Web Audio API / Web Worker / PWA | 無限關卡的試劑分離解謎遊戲，每關由 Web Worker 以 BFS 驗證可解並計算最少步數，支援 PWA 離線遊玩。 | [檢視說明](https://github.com/Scorpio-meow/Liquid-Cipher#readme) |
+| **星塵迷宮 (Stardust Labyrinth)** | 終端機 | Python 3 | 經典純文字迷宮冒險遊戲，幽靈會透過曼哈頓距離尋路追擊玩家，支援自訂地圖設計。 | [檢視說明](https://github.com/Scorpio-meow/Stardust-Labyrinth#readme) |
+| **量子猜拳 (Quantum Duel)** | 終端機 | Python 3 | 結合斬擊、格擋與蓄能機制的策略心理戰對戰遊戲，AI 會根據當前局勢動態調整決策權重。 | [檢視說明](https://github.com/Scorpio-meow/Quantum-Duel#readme) |
+| **愛情進行時 (Love in Progress)** | 桌面視窗 | Python 3 / Tkinter | 在螢幕上依據心形數學曲線軌跡動態生成多個提示彈窗的趣味程式，具備一鍵退出安全機制。 | [檢視說明](https://github.com/Scorpio-meow/Love-in-Progress#readme) |
+| **猜數字遊戲 (Guess the number)** | 網頁瀏覽器 | HTML5 / CSS3 / JavaScript | 經典的單機猜數字遊戲，提供即時的高低提示與完整的輸入數值防呆驗證。 | [檢視說明](https://github.com/Scorpio-meow/Guess-the-number#readme) |
 
 ---
 
@@ -22,12 +22,15 @@
 
 ### 複製專案庫
 
-請先將本專案庫複製到您的本地環境：
+各遊戲以 Git 子模組（submodule）的形式收錄，複製時請加上 `--recurse-submodules`，才會一併下載所有遊戲：
 
 ```bash
-git clone https://github.com/Scorpio-meow/Miao-Playground.git
+git clone --recurse-submodules https://github.com/Scorpio-meow/Miao-Playground.git
 cd Miao-Playground
 ```
+
+> [!TIP]
+> 如果已經複製過但遊戲資料夾是空的，請在專案根目錄執行 `git submodule update --init --recursive`。
 
 ### 執行網頁版遊戲 (Liquid Cipher / Guess the number)
 
@@ -57,3 +60,20 @@ python "Quantum Duel.py"
 
 > [!NOTE]
 > 「愛情進行時 (Love in Progress)」需要 Tkinter 繪圖庫支援。若在 Linux 系統下執行遇到缺乏 Tkinter 的錯誤，請使用系統套件管理工具安裝，例如：`sudo apt-get install python3-tk`
+
+---
+
+## 參與貢獻
+
+每款遊戲都是獨立的 GitHub 專案，遊戲本身的錯誤回報、功能建議與 Pull Request 請到對應的子專案提交；總覽文件與子模組設定的修改則在本專案庫進行。開始之前請先閱讀：
+
+- [貢獻指南](./CONTRIBUTING.md)：開發環境、Commit 規範與 Pull Request 流程
+- [行為準則](./CODE_OF_CONDUCT.md)：參與社群的互動規範
+- [安全性政策](./SECURITY.md)：如何私下回報安全性漏洞
+- [無障礙聲明](./ACCESSIBILITY.md)：支援環境、已知限制與回報管道
+
+---
+
+## 授權條款
+
+本專案庫採用 [MIT License](./LICENSE) 授權釋出，各子專案的授權條款請見其各自的 LICENSE 檔案。

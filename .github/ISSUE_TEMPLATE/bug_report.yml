@@ -1,0 +1,74 @@
+name: 錯誤回報
+description: 回報程式中的錯誤或非預期的行為
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感謝你花時間回報問題！送出前請先搜尋[現有 Issue](https://github.com/Scorpio-meow/Miao-Playground/issues?q=is%3Aissue)，確認沒有重複。
+        安全性漏洞請**不要**在此公開回報，請依照[安全性政策](https://github.com/Scorpio-meow/Miao-Playground/blob/main/SECURITY.md)私下回報。
+
+        **遊戲本身**的問題請到對應的子專案回報：[液體解鎖 (Liquid Cipher)](https://github.com/Scorpio-meow/Liquid-Cipher/issues/new/choose)、[星塵迷宮 (Stardust Labyrinth)](https://github.com/Scorpio-meow/Stardust-Labyrinth/issues/new/choose)、[量子猜拳 (Quantum Duel)](https://github.com/Scorpio-meow/Quantum-Duel/issues/new/choose)、[愛情進行時 (Love in Progress)](https://github.com/Scorpio-meow/Love-in-Progress/issues/new/choose)、[猜數字遊戲 (Guess the Number)](https://github.com/Scorpio-meow/Guess-the-number/issues/new/choose)。這裡只處理總覽文件、子模組設定與共用的社群文件。
+  - type: textarea
+    id: description
+    attributes:
+      label: 問題描述
+      description: 請清楚簡潔地說明發生了什麼問題。
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 重現步驟
+      description: 請列出能讓問題再次發生的步驟。
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 預期結果
+      description: 你原本預期會發生什麼？
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 實際結果
+      description: 實際發生了什麼？如有錯誤訊息、截圖或終端機輸出，請一併附上。
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: 問題所在
+      options:
+        - README 總覽文件
+        - 子模組設定（.gitmodules 或子模組指標）
+        - 社群文件或 Issue / PR 範本
+        - 其他（請在下方說明）
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: 作業系統
+      placeholder: 例如 Windows 11、macOS 15、Ubuntu 24.04
+  - type: textarea
+    id: additional
+    attributes:
+      label: 其他資訊
+      description: 任何有助於釐清問題的補充資訊。
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: 確認事項
+      options:
+        - label: 我已搜尋過現有 Issue，確認這不是重複的回報。
+          required: true
+        - label: 我同意遵守本專案的[行為準則](https://github.com/Scorpio-meow/Miao-Playground/blob/main/CODE_OF_CONDUCT.md)。
+          required: true

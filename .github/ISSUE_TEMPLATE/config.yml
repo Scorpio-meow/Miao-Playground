@@ -1,0 +1,20 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 私密回報安全性漏洞
+    url: https://github.com/Scorpio-meow/Miao-Playground/security/advisories/new
+    about: 安全性漏洞請透過 GitHub 私密漏洞回報，不要公開建立 Issue。
+  - name: 液體解鎖 (Liquid Cipher) 的問題
+    url: https://github.com/Scorpio-meow/Liquid-Cipher/issues/new/choose
+    about: 遊戲本身的錯誤、建議與無障礙問題，請到子專案回報。
+  - name: 星塵迷宮 (Stardust Labyrinth) 的問題
+    url: https://github.com/Scorpio-meow/Stardust-Labyrinth/issues/new/choose
+    about: 遊戲本身的錯誤、建議與無障礙問題，請到子專案回報。
+  - name: 量子猜拳 (Quantum Duel) 的問題
+    url: https://github.com/Scorpio-meow/Quantum-Duel/issues/new/choose
+    about: 遊戲本身的錯誤、建議與無障礙問題，請到子專案回報。
+  - name: 愛情進行時 (Love in Progress) 的問題
+    url: https://github.com/Scorpio-meow/Love-in-Progress/issues/new/choose
+    about: 遊戲本身的錯誤、建議與無障礙問題，請到子專案回報。
+  - name: 猜數字遊戲 (Guess the Number) 的問題
+    url: https://github.com/Scorpio-meow/Guess-the-number/issues/new/choose
+    about: 遊戲本身的錯誤、建議與無障礙問題，請到子專案回報。
